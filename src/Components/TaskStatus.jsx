@@ -7,7 +7,7 @@ const TaskStatus = () => {
 
       <div className="space-y-1">
 
-        {/* Task 1 */}
+      
          <div className="card bg-base-100 shadow-md p-6 w-full max-w-md">
       <h2 className="text-xl font-semibold mb-4">
         Payment Failed - Card Declined
@@ -20,7 +20,7 @@ const TaskStatus = () => {
 
       
 
-        {/* Resolved */}
+        
         <div className="mt-[2px]">
           <h3 className="text-xs font-semibold">Resolved Task</h3>
           <p className="text-[10px] text-gray-400">

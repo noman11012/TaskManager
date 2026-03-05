@@ -24,7 +24,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Hamburger */}
+      
         <div className="md:hidden">
           <button onClick={() => setOpen(!open)}>
             ☰
@@ -33,7 +33,7 @@ const Navbar = () => {
 
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      
       {open && (
         <div className="md:hidden bg-base-100 px-4 pb-4 space-y-3">
           <a className="block hover:text-primary">Home</a>

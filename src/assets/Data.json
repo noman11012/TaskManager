@@ -1,0 +1,92 @@
+[
+  {
+    "id": "#1001",
+    "title": "Login Issues - Can't Access Account",
+    "description": "Customer cannot log in even after resetting password.",
+    "customer": "John Smith",
+    "priority": "HIGH",
+    "status": "Open",
+    "createdAt": "2024-01-15"
+  },
+  {
+    "id": "#1002",
+    "title": "Payment Failed - Card Declined",
+    "description": "Payment failed using Visa card despite sufficient balance.",
+    "customer": "Sarah Johnson",
+    "priority": "HIGH",
+    "status": "Open",
+    "createdAt": "2024-01-16"
+  },
+  {
+    "id": "#1003",
+    "title": "Unable to Update Profile",
+    "description": "Customer cannot update profile information.",
+    "customer": "Michael Brown",
+    "priority": "MEDIUM",
+    "status": "Pending",
+    "createdAt": "2024-01-17"
+  },
+  {
+    "id": "#1004",
+    "title": "Order Not Delivered",
+    "description": "Customer has not received the order yet.",
+    "customer": "Emily Davis",
+    "priority": "HIGH",
+    "status": "Open",
+    "createdAt": "2024-01-18"
+  },
+  {
+    "id": "#1005",
+    "title": "Refund Request",
+    "description": "Customer requested refund for damaged product.",
+    "customer": "David Wilson",
+    "priority": "MEDIUM",
+    "status": "Pending",
+    "createdAt": "2024-01-19"
+  },
+  {
+    "id": "#1006",
+    "title": "App Crashing on Startup",
+    "description": "Mobile app crashes immediately after opening.",
+    "customer": "Jessica Taylor",
+    "priority": "HIGH",
+    "status": "Open",
+    "createdAt": "2024-01-20"
+  },
+  {
+    "id": "#1007",
+    "title": "Password Reset Email Not Received",
+    "description": "Customer didn't receive password reset email.",
+    "customer": "Daniel Anderson",
+    "priority": "LOW",
+    "status": "Resolved",
+    "createdAt": "2024-01-21"
+  },
+  {
+    "id": "#1008",
+    "title": "Incorrect Billing Amount",
+    "description": "Customer charged incorrect amount on invoice.",
+    "customer": "Olivia Martinez",
+    "priority": "HIGH",
+    "status": "Open",
+    "createdAt": "2024-01-22"
+  },
+  {
+    "id": "#1009",
+    "title": "Feature Request - Dark Mode",
+    "description": "Customer requested dark mode feature.",
+    "customer": "James Thomas",
+    "priority": "LOW",
+    "status": "Pending",
+    "createdAt": "2024-01-23"
+  },
+  {
+    "id": "#1010",
+    "title": "Two Factor Authentication Issue",
+    "description": "Customer cannot verify OTP code.",
+    "customer": "Sophia Garcia",
+    "priority": "MEDIUM",
+    "status": "Open",
+    "createdAt": "2024-01-24"
+  }
+]
