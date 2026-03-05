@@ -1,12 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const TaskStatus = ({selectedTicket}) => {
-
-    function handleTask() {
-        
-    }
-  return (
-    <div>
+const ResolveTask = () => {
+    return (
+        <div>
+             <div>
 
       <div className="space-y-1">
 
@@ -16,14 +13,15 @@ const TaskStatus = ({selectedTicket}) => {
         {selectedTicket.title}
       </h2>
 
-      <button onClick={()=>handleTask()} className="btn btn-success w-full text-lg">
+      <button className="btn btn-success w-full text-lg">
         Complete
       </button>
         </div>
 
       </div>
     </div>
-  );
+        </div>
+    );
 };
 
-export default TaskStatus;
+export default ResolveTask;

@@ -1,10 +1,10 @@
 import React from "react";
 import { Calendar } from "lucide-react";
 
-const TicketCard = ({ ticket }) => {
+const TicketCard = ({ ticket ,TicketCardHandle}) => {
 
   function HandleTicket(){
-    console.log(ticket.id);
+    TicketCardHandle(ticket);
   }
 
   const priorityColor =
