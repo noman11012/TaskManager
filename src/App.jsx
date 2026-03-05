@@ -4,6 +4,7 @@ import Dashboard from "./Components/Dashboard";
 import TaskStatus from "./Components/TaskStatus";
 import TicketCard from "./Components/TicketCard";
 import Data from "./assets/Data.json";
+import ResolveTask from "./Components/ResolveTask";
 
 function App() {
   const tickets = Data;
@@ -16,10 +17,24 @@ function App() {
     setTicketID(updatedTicketID);
   }
 
-  function TaskStatusHandle(task){
-const updatedTaskID = [...taskID, task];
-    setTaskID(updatedTaskID);
-  }
+function TaskStatusHandle(task) {
+
+
+  const updatedTaskID = [...taskID, task];
+  setTaskID(updatedTaskID);
+
+
+  const remainingTickets = ticketID.filter(
+    (ticket) => ticket.id !== task.id
+  );
+
+  setTicketID(remainingTickets);
+}
+
+function ResolveTaskHandle(task){
+  const remainingTickets = ticketID.filter(t => t.id !== task.id);
+  setTicketID(remainingTickets);
+}
 
 
   
@@ -27,7 +42,7 @@ const updatedTaskID = [...taskID, task];
     <>
       <div className="bg-base-200">
         <Navbar />
-        <Dashboard />
+        <Dashboard task={ticketID.length} resolve={taskID.length}/>
       </div>
 
       <div className="p-6">
@@ -51,25 +66,32 @@ const updatedTaskID = [...taskID, task];
           </div>
 
   {/* Right Section */}
+
+        <div>
+
           <div>
           <h2 className="text-sm font-bold mb-1">Task Status</h2>
               {ticketID.map((selectedTicket) => (
                 <TaskStatus
                   key={selectedTicket.id}
+                  TaskStatusHandle={TaskStatusHandle}
                   selectedTicket={selectedTicket}
                 />
               ))}
           </div>
 
         <div>
-          <h2 className="text-sm font-bold mb-1">Task Status</h2>
-              {ticketID.map((selectedTicket) => (
-                <TaskStatus
+          <h2 className="text-sm font-bold mb-1 ">Resolve Task</h2>
+              {taskID.map((selectedTicket) => (
+                <ResolveTask
                   key={selectedTicket.id}
                   selectedTicket={selectedTicket}
+                  ResolveTaskHandle={ResolveTaskHandle}
                 />
               ))}
           </div>
+
+        </div>
 
 
         </div>

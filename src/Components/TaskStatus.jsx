@@ -1,9 +1,9 @@
 import React from "react";
 
-const TaskStatus = ({selectedTicket}) => {
+const TaskStatus = ({selectedTicket, TaskStatusHandle}) => {
 
     function handleTask() {
-        
+        TaskStatusHandle(selectedTicket);
     }
   return (
     <div>

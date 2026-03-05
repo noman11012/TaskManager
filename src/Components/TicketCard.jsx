@@ -16,7 +16,7 @@ const TicketCard = ({ ticket ,TicketCardHandle}) => {
 
   return (
     <div
-      onClick={HandleTicket}
+      onClick={()=>HandleTicket()}
       className="bg-base-100 shadow-md rounded-xl p-5"
     >
 

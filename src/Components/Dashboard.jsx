@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+
 import vector1 from "../assets/vector1.png";
 import vector2 from "../assets/vector2.png";
 
-const Dashboard = () => {
+const Dashboard = ({task,resolve}) => {
   return (
     <div className=" bg-base-200">
 
@@ -43,7 +43,7 @@ const Dashboard = () => {
             <h2 className="text-lg font-medium opacity-90">
               In-Progress
             </h2>
-            <p className="text-6xl font-bold mt-4">0</p>
+            <p className="text-6xl font-bold mt-4">{task}</p>
           </div>
         </div>
 
@@ -80,7 +80,7 @@ const Dashboard = () => {
             <h2 className="text-lg font-medium opacity-90">
               Resolved
             </h2>
-            <p className="text-6xl font-bold mt-4">0</p>
+            <p className="text-6xl font-bold mt-4">{resolve}</p>
           </div>
         </div>
 
