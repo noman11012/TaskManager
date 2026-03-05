@@ -17,7 +17,7 @@ const Dashboard = ({task,resolve}) => {
                         to-purple-500
                         text-white">
 
-          {/* Top Right Decoration */}
+         
           <img
             src={vector1}
             alt=""
@@ -28,7 +28,7 @@ const Dashboard = ({task,resolve}) => {
                        pointer-events-none"
           />
 
-          {/* Bottom Left Decoration */}
+      
           <img
             src={vector2}
             alt=""

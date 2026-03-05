@@ -8,35 +8,27 @@ import Data from "./assets/Data.json";
 import ResolveTask from "./Components/ResolveTask";
 
 function App() {
-  const tickets = Data;
+  const [tickets, setTickets] = useState(Data);  
+  const [taskID, setTaskID] = useState([]);      
+  const [resolveID, setResolveID] = useState([]); 
 
-  const [ticketID, setTicketID] = useState([]);
-  const [taskID, setTaskID] = useState([]);
-
+  // Ticket Card → Task Status
   function TicketCardHandle(ticket) {
-    const updatedTicketID = [...ticketID, ticket];
-    setTicketID(updatedTicketID);
-    toast.success(`Added to TaskStatus: ${ticket.title}`); // Toast
+    setTaskID(prev => [...prev, ticket]);
+    toast.success(`Added to Task Status: ${ticket.title}`);
   }
 
+  // Task Status Complete → Resolved Task
   function TaskStatusHandle(task) {
-    const updatedTaskID = [...taskID, task];
-    setTaskID(updatedTaskID);
-
-    const remainingTickets = ticketID.filter(
-      (ticket) => ticket.id !== task.id
-    );
-    setTicketID(remainingTickets);
-
-    toast.success(`Moved to Resolve Task: ${task.title}`);
+    setTaskID(prev => prev.filter(t => t.id !== task.id));
+    setResolveID(prev => [...prev, task]);
+    toast.success(`Moved to Resolved Task: ${task.title}`);
   }
+
 
   function ResolveTaskHandle(task) {
-    // Customer Tickets থেকে remove হবে
-    const remainingTickets = ticketID.filter((t) => t.id !== task.id);
-    setTicketID(remainingTickets);
-
-    toast.success(`Task Completed: ${task.title}`);
+    setTickets(prev => prev.filter(t => t.id !== task.id));    
+    toast.success(`Removed from Customer Tickets: ${task.title}`);
   }
 
   return (
@@ -44,16 +36,17 @@ function App() {
       <Toaster position="top-right" reverseOrder={false} />
       <div className="bg-base-200">
         <Navbar />
-        <Dashboard task={ticketID.length} resolve={taskID.length} />
+        <Dashboard task={taskID.length} resolve={resolveID.length} />
       </div>
 
       <div className="p-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Section */}
+
+          {/* Customer Tickets */}
           <div className="lg:col-span-2">
             <h2 className="text-xl font-bold mb-4">Customer Tickets</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {tickets.map((ticket) => (
+              {tickets.map(ticket => (
                 <TicketCard
                   key={ticket.id}
                   TicketCardHandle={TicketCardHandle}
@@ -63,30 +56,27 @@ function App() {
             </div>
           </div>
 
-          {/* Right Section */}
+          {/* Task Status & Resolved */}
           <div>
-            <div>
-              <h2 className="text-sm font-bold mb-1">Task Status</h2>
-              {ticketID.map((selectedTicket) => (
-                <TaskStatus
-                  key={selectedTicket.id}
-                  TaskStatusHandle={TaskStatusHandle}
-                  selectedTicket={selectedTicket}
-                />
-              ))}
-            </div>
+            <h2 className="text-sm font-bold mb-1">Task Status</h2>
+            {taskID.map(task => (
+              <TaskStatus
+                key={task.id}
+                TaskStatusHandle={TaskStatusHandle}
+                selectedTicket={task}
+              />
+            ))}
 
-            <div>
-              <h2 className="text-sm font-bold mb-1">Resolve Task</h2>
-              {taskID.map((selectedTicket) => (
-                <ResolveTask
-                  key={selectedTicket.id}
-                  selectedTicket={selectedTicket}
-                  ResolveTaskHandle={ResolveTaskHandle}
-                />
-              ))}
-            </div>
+            <h2 className="text-sm font-bold mb-1 mt-4">Resolved Task</h2>
+            {resolveID.map(task => (
+              <ResolveTask
+                key={task.id}
+                selectedTicket={task}
+                ResolveTaskHandle={ResolveTaskHandle}
+              />
+            ))}
           </div>
+
         </div>
       </div>
     </>
