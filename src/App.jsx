@@ -6,6 +6,7 @@ import TaskStatus from "./Components/TaskStatus";
 import TicketCard from "./Components/TicketCard";
 import Data from "./assets/Data.json";
 import ResolveTask from "./Components/ResolveTask";
+import Footer from "./Components/Footer";
 
 function App() {
   const [tickets, setTickets] = useState(Data);  
@@ -79,6 +80,7 @@ function App() {
 
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }
